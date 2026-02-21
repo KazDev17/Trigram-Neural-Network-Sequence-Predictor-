@@ -1,4 +1,4 @@
-# 🛡️ Trigram Neural Network: Sequence Predictor
+# <h1 align="center">🛡️ Trigram Neural Network: Sequence Predictor</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
   <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
@@ -27,7 +27,12 @@ The visualization below shows the character embedding space after training. Noti
 
 <img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
 
+## 🛠️ Technical Challenges: The "Confidently Wrong" Bug
+- During development, the model initially showed an abnormally high loss (~17.0). 
+- Through diagnostic testing, I identified a double-initialization error where the weights were being reset with high-variance random numbers.
+- By "quieting" the weights ($W2 \times 0.01$) and centering the biases, I achieved a baseline random loss of ($~3.3$), which allowed the gradient descent to converge much more effectively to a final loss of 2.28.
+
 ## 🛠️ How to Use
 1. Open the `.ipynb` file in Google Colab.
 2. Run the initialization and training cells.
-3. Use the **Interactive Predictor** form to input a 2-character prefix (e.g., "ma", "th", "st") and watch the model generate the rest.
+3. Use the **Interactive Predictor** form to input a 2-character prefix (e.g., "ma", "th", "st") and watch the model generate the  rest.
