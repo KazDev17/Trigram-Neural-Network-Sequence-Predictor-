@@ -1,4 +1,11 @@
 # 🛡️ Trigram Neural Network: Sequence Predictor
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" />
+</p>
+
 
 A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences.
 
@@ -19,7 +26,7 @@ A character-level language model built from scratch using PyTorch. This project 
 ## 🧠 What the Model Learned
 The visualization below shows the character embedding space after training. Notice how vowels (a, e, i, o, u) have clustered together, proving the model understands their interchangeable role in sequence formation.
 
-[INSERT A SCREENSHOT OF YOUR SCATTER PLOT HERE]
+<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
 
 ## 🛠️ How to Use
 1. Open the `.ipynb` file in Google Colab.
