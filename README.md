@@ -25,13 +25,21 @@ A character-level language model built from scratch using PyTorch. This project 
 ## What the Model Learned
 The visualization below shows the character embedding space after training. Notice how vowels (a, e, i, o, u) have clustered together, proving the model understands their interchangeable role in sequence formation.
 
-<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
-
-
 ## Technical Challenges: The "Confidently Wrong" Bug
 - During development, the model initially showed an abnormally high loss (~17.0). 
 - Through diagnostic testing, I identified a double-initialization error where the weights were being reset with high-variance random numbers.
 - By "quieting" the weights ($W2 \times 0.01$) and centering the biases, I achieved a baseline random loss of ($~3.3$), which allowed the gradient descent to converge much more effectively to a final loss of 2.28.
+
+## Advanced Insights: Phonetic Discovery
+To improve model accuracy, I scaled the architecture from a 2-dimensional embedding to a **10-dimensional latent space**. To maintain interpretability, I utilized **PCA (Principal Component Analysis)** to project these high-dimensional relationships back into a 2D visualization.
+
+### Key Discovery: The "Sometimes Y" Rule
+A notable result of the training process was the autonomous clustering of the letter **'y'** within the vowel group (a, e, i, o, u). 
+
+Without explicit linguistic programming, the model identified that 'y' shares statistical contexts with vowels in the English names dataset. This demonstrates the model's ability to capture nuanced phonetic patterns through gradient descent.
+
+<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
+
 
 ## How to Use
 1. Open the `.ipynb` file in Google Colab.
