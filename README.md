@@ -1,4 +1,4 @@
-# <h1 align="center">🛡️ Trigram Neural Network: Sequence Predictor</h1>
+# <h1 align="center">Trigram Neural Network: Sequence Predictor</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
   <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
@@ -24,6 +24,8 @@ A character-level language model built from scratch using PyTorch. This project 
 
 ## What the Model Learned
 The visualization below shows the character embedding space after training. Notice how vowels (a, e, i, o, u) have clustered together, proving the model understands their interchangeable role in sequence formation.
+
+<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
 
 
 ## Technical Challenges: The "Confidently Wrong" Bug
