@@ -25,7 +25,6 @@ A character-level language model built from scratch using PyTorch. This project 
 ## What the Model Learned
 The visualization below shows the character embedding space after training. Notice how vowels (a, e, i, o, u) have clustered together, proving the model understands their interchangeable role in sequence formation.
 
-<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
 
 ## Technical Challenges: The "Confidently Wrong" Bug
 - During development, the model initially showed an abnormally high loss (~17.0). 
