@@ -1,8 +1,10 @@
 # <h1 align="center">Trigram Neural Network: Sequence Predictor</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
-  <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
-  <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252" />
+  <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />  
+  <a href="https://colab.research.google.com/drive/1hvz9LUsrzMioGR0woZhXtFOcfmPmzWJ8?usp=sharing">
+    <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252"/>
+  </a>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" />
 </p>
 
@@ -20,6 +22,9 @@ The model follows the architecture proposed by Bengio et al. (2003), scaled for 
 2. Flattening: Concatenates context embeddings into a single input vector.
 3. Hidden Layer: A 300-neuron "Engine Room" using tanh activation to detect complex phonetic patterns.
 4. Output Layer: A 27-way linear layer (Logits) followed by a Softmax distribution.
+
+<img src="name_generator_architecture.jpg" width="600" title="Architecture">
+
 
 ## Technical Performance
 | Metric | Value |
@@ -45,7 +50,7 @@ A notable result of the training process was the autonomous clustering of the le
 
 Without explicit linguistic programming, the model identified that 'y' shares statistical contexts with vowels in the English names dataset. This demonstrates the model's ability to capture nuanced phonetic patterns through gradient descent.
 
-<img src="trigram_scatter_plot.png" width="600" title="Scatter Plot">
+<img src="trigram_scatter_plot.png" width="600" title="PCA Clusters">
 
 ## Convergence Analysis
 The model was trained for 20,000 iterations using Stochastic Gradient Descent (SGD).
@@ -55,7 +60,7 @@ Final Log-Loss: 0.3929
 Final Raw Cross-Entropy: ~2.47
 The loss curve shows a classic "plateau" effect, indicating that the model successfully captured the primary phonetic rules of the dataset.
 
-<img src="training_loss.png" width="600" title="Loss Graph">
+<img src="training_loss.png" width="600" title="Loss Curve">
 
 ## Model Inference & Sample Output
 After training for 20,000 iterations, the model was tasked with generating new names by sampling from the learned probability distributions.
@@ -79,13 +84,14 @@ It can get stuck in high-probability loops (like wa-wa-mon...) because it doesn'
 
 ## Future Work & Roadmap
 To overcome the limitations of the current architecture, the following iterations are planned:
-- Scaling the Context Window: Moving from a Trigram (2-char) to an N-gram (5+ char) approach to capture longer-distance dependencies and reduce "looping."
-- Implementation of Batch Normalization: Adding BatchNorm layers to stabilize the hidden layer activations, allowing for faster convergence and deeper networks.
-- Residual Connections: Implementing skip-connections to allow gradients to flow more easily through deeper MLP architectures.
-- Transition to WaveNet/RNNs: Moving away from flattened MLP inputs toward hierarchical structures (WaveNet) or Recurrent Neural Networks (RNNs) that can maintain a hidden state across the entire string length.
-- Transformer Architecture: The ultimate goal is to implement a decoder-only Transformer (like a mini-GPT) to utilize self-attention for global context awareness.
+- [ ] **Scaling Context**: Expand the window from 2 characters to 5+ to reduce looping.
+- [ ] **Batch Normalization**: Implement BatchNorm layers to stabilize activations.
+- [ ] **Residual Connections**: Add skip-connections to explore deeper architectures.
+- [ ] **Transformers**: Implement a decoder-only Transformer to utilize self-attention for global context.
 
 ## How to Use
-1. Open the `.ipynb` file in Google Colab.
+1. Open the `.ipynb` file in **Google Colab**.
 2. Run the initialization and training cells.
-3. Use the **Interactive Predictor** form to input a 2-character prefix (e.g., "ma", "th", "st") and watch the model generate the  rest.
+3. Execute the training loop.
+4. Use the **Interactive Predictor** form to input a 2-character prefix (e.g., "ma", "th", "st") and watch the model generate the  rest.
+5. Use the **Inference Cell** at the bottom to generate your own names!
