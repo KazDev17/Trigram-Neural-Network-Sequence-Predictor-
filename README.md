@@ -22,9 +22,9 @@ The model follows the architecture proposed by Bengio et al. (2003), scaled for 
 2. Flattening: Concatenates context embeddings into a single input vector.
 3. Hidden Layer: A 300-neuron "Engine Room" using tanh activation to detect complex phonetic patterns.
 4. Output Layer: A 27-way linear layer (Logits) followed by a Softmax distribution.
-
+<p align="center">
 <img src="name_generator_architecture.jpg" width="600" title="Architecture">
-
+</p>
 
 ## Technical Performance
 | Metric | Value |
