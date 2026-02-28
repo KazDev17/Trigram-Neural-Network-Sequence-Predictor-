@@ -77,6 +77,14 @@ It can get stuck in high-probability loops (like wa-wa-mon...) because it doesn'
 
 **This is a characteristic limitation of fixed-window MLPs.**
 
+## Future Work & Roadmap
+To overcome the limitations of the current architecture, the following iterations are planned:
+- Scaling the Context Window: Moving from a Trigram (2-char) to an N-gram (5+ char) approach to capture longer-distance dependencies and reduce "looping."
+- Implementation of Batch Normalization: Adding BatchNorm layers to stabilize the hidden layer activations, allowing for faster convergence and deeper networks.
+- Residual Connections: Implementing skip-connections to allow gradients to flow more easily through deeper MLP architectures.
+- Transition to WaveNet/RNNs: Moving away from flattened MLP inputs toward hierarchical structures (WaveNet) or Recurrent Neural Networks (RNNs) that can maintain a hidden state across the entire string length.
+- Transformer Architecture: The ultimate goal is to implement a decoder-only Transformer (like a mini-GPT) to utilize self-attention for global context awareness.
+
 ## How to Use
 1. Open the `.ipynb` file in Google Colab.
 2. Run the initialization and training cells.
