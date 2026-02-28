@@ -7,7 +7,7 @@
   </a>
 </p>
 
-A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences trained on a dataset of 32,000+ names (228k+ training examples)..
+A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences trained on a dataset of 32,000+ names (228k+ training examples).
 
 ## Key Features
 - **Trigram Context Window:** Utilizes $n-1$ (two) previous characters to predict the third, providing significantly higher structural accuracy than Bigram models.
