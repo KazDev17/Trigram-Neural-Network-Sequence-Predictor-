@@ -5,7 +5,6 @@
   <a href="https://colab.research.google.com/drive/1hvz9LUsrzMioGR0woZhXtFOcfmPmzWJ8?usp=sharing">
     <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252"/>
   </a>
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" />
 </p>
 
 A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences trained on a dataset of 32,000+ names (228k+ training examples)..
