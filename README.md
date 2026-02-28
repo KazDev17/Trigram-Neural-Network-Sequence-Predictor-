@@ -6,13 +6,20 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" />
 </p>
 
-A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences.
+A character-level language model built from scratch using PyTorch. This project moves beyond simple Bigram models to implement a **Trigram** architecture with a two-character context window, designed to predict and generate name/password-like sequences trained on a dataset of 32,000+ names (228k+ training examples)..
 
 ## Key Features
 - **Trigram Context Window:** Utilizes $n-1$ (two) previous characters to predict the third, providing significantly higher structural accuracy than Bigram models.
 - **Learned Embeddings:** Maps characters into a 2D vector space, allowing the model to "learn" phonetic relationships (e.g., vowels vs. consonants) geometrically.
 - **Custom MLP Architecture:** Implements a hidden layer with 100 neurons and Tanh activation functions.
 - **Interactive Predictor:** Includes a Google Colab-based UI for real-time sequence completion.
+
+## Architecture & Methodology
+The model follows the architecture proposed by Bengio et al. (2003), scaled for character-level linguistics:
+1. Embedding Layer: Maps 27 characters into a 2D latent space.
+2. Flattening: Concatenates context embeddings into a single input vector.
+3. Hidden Layer: A 300-neuron "Engine Room" using tanh activation to detect complex phonetic patterns.
+4. Output Layer: A 27-way linear layer (Logits) followed by a Softmax distribution.
 
 ## Technical Performance
 | Metric | Value |
@@ -39,6 +46,16 @@ A notable result of the training process was the autonomous clustering of the le
 Without explicit linguistic programming, the model identified that 'y' shares statistical contexts with vowels in the English names dataset. This demonstrates the model's ability to capture nuanced phonetic patterns through gradient descent.
 
 <img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
+
+## Convergence Analysis
+The model was trained for 20,000 iterations using Stochastic Gradient Descent (SGD).
+
+Final Log-Loss: 0.3929
+
+Final Raw Cross-Entropy: ~2.47
+The loss curve shows a classic "plateau" effect, indicating that the model successfully captured the primary phonetic rules of the dataset.
+
+<img src="training_loss.png" width="600" title="Character Embeddings Graph">
 
 
 ## How to Use
