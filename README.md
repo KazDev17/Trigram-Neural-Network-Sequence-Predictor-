@@ -45,7 +45,7 @@ A notable result of the training process was the autonomous clustering of the le
 
 Without explicit linguistic programming, the model identified that 'y' shares statistical contexts with vowels in the English names dataset. This demonstrates the model's ability to capture nuanced phonetic patterns through gradient descent.
 
-<img src="trigram_scatter_plot.png" width="600" title="Character Embeddings Graph">
+<img src="trigram_scatter_plot.png" width="600" title="Scatter Plot">
 
 ## Convergence Analysis
 The model was trained for 20,000 iterations using Stochastic Gradient Descent (SGD).
@@ -55,8 +55,27 @@ Final Log-Loss: 0.3929
 Final Raw Cross-Entropy: ~2.47
 The loss curve shows a classic "plateau" effect, indicating that the model successfully captured the primary phonetic rules of the dataset.
 
-<img src="training_loss.png" width="600" title="Character Embeddings Graph">
+<img src="training_loss.png" width="600" title="Loss Graph">
 
+## Model Inference & Sample Output
+After training for 20,000 iterations, the model was tasked with generating new names by sampling from the learned probability distributions.
+
+Sample Results:
+- Phonetic Successes: enn, rav, may, mal, kamahe
+- Creative Generalization: demilayn, maisarewcen
+- The "Infinite Loop" Phenomenon: wawamonnarilidpad
+
+<img src="name_generation_sample.png" width="600" title="Name Inference of 10">
+
+
+### Technical Analysis of Output:
+The model excels at local phonetic transitions (e.g., knowing that d often follows l in demilayn). 
+
+However, because the Trigram context is only 2 characters wide, the model lacks "Global Memory." 
+
+It can get stuck in high-probability loops (like wa-wa-mon...) because it doesn't "remember" how long the name has already become. 
+
+**This is a characteristic limitation of fixed-window MLPs.**
 
 ## How to Use
 1. Open the `.ipynb` file in Google Colab.
